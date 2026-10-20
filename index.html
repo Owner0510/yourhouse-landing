@@ -670,8 +670,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="wrap">
     <div class="head rv"><h2>Что вас <i>останавливает</i>?</h2></div>
     <div class="rows">
-      <div class="rowx rv"><h3>Не хватит денег на первый взнос</h3><p>Бывают программы с&nbsp;первым взносом от&nbsp;3–3,5% и&nbsp;помощь с&nbsp;взносом в&nbsp;Иллинойсе. Подскажу, какие подходят вам.</p></div>
-      <div class="rowx rv"><h3>Страшно брать ипотеку</h3><p>Идеальная кредитная история не обязательна. Есть программы и для тех, кто недавно в США, в том числе без SSN. Подскажу, к кому идти за одобрением.</p></div>
+      <div class="rowx rv"><h3>Не хватит денег на первый взнос</h3><p>Бывают программы с&nbsp;небольшим первым взносом, в&nbsp;том числе помощь с&nbsp;взносом в&nbsp;Иллинойсе. Подскажу, какие подходят вам.</p></div>
+      <div class="rowx rv"><h3>Страшно брать ипотеку</h3><p>Не нужно разбираться заранее. Объясню шаги простыми словами и&nbsp;подскажу, к&nbsp;кому идти за предварительным одобрением.</p></div>
       <div class="rowx rv"><h3>Сложно с языком и документами</h3><p>Объясню каждую бумагу простыми словами, до&nbsp;подписи.</p></div>
       <div class="rowx rv"><h3>Боюсь ошибиться с выбором</h3><p>Покажу плюсы и минусы каждого дома и помогу договориться о&nbsp;цене.</p></div>
     </div>
@@ -696,12 +696,12 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="wrap">
     <div class="head nohr rv"><h2>Как проходит <i>покупка</i></h2></div>
     <div class="steps">
-      <div class="step rv"><b>01</b><h3>Разговор</h3><p>15 минут: бюджет, сроки, пожелания. Бесплатно.</p></div>
+      <div class="step rv"><b>01</b><h3>Разговор</h3><p>Обсудим бюджет, ипотеку, районы и&nbsp;сроки. Бесплатно.</p></div>
       <div class="step rv"><b>02</b><h3>Подбор</h3><p>Нахожу подходящие дома в MLS и отсеиваю лишнее.</p></div>
       <div class="step rv"><b>03</b><h3>Просмотры и торг</h3><p>Еду с вами на просмотры и договариваюсь о цене.</p></div>
       <div class="step rv"><b>04</b><h3>Сделка</h3><p>Организую инспекцию и&nbsp;слежу за документами до&nbsp;закрытия. Вы получаете ключи.</p></div>
     </div>
-    <div class="cta-row rv"><a class="btn" href="#quiz" data-open>Подобрать дом</a><small>Свяжусь с вами в течение дня</small></div>
+    <div class="cta-row rv"><a class="btn" href="#quiz" data-open>Подобрать дом</a><small>Без обязательств</small></div>
   </div>
 </section>
 <!-- 7. ПРОДАЖА (dark band) -->
@@ -716,7 +716,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="wrap faq">
     <div class="head rv"><h2>Частые <i>вопросы</i></h2><p class="faq-call">Не нашли ответ? Позвоните: <a href="tel:+16305937949">(630) 593-7949</a></p></div>
     <div class="faq-list">
-    <details><summary>Сколько нужно на первый взнос?</summary><p>Есть программы с первым взносом от&nbsp;3–3,5% цены дома, обычно требуется 5–20%. Точную сумму для вашего случая назовёт кредитор, а я подскажу, к кому обратиться.</p></details>
+    <details><summary>С чего начать покупку?</summary><p>С&nbsp;бюджета и&nbsp;предварительного одобрения ипотеки у&nbsp;кредитора. Я подскажу, к&nbsp;кому обратиться и&nbsp;какие документы подготовить, а&nbsp;затем подберу дома под&nbsp;ваш бюджет.</p></details>
+    <details><summary>Сколько нужно на первый взнос?</summary><p>Бывают программы с небольшим первым взносом, и в Иллинойсе есть помощь с взносом. Точные условия зависят от кредитора, а я подскажу, к кому обратиться.</p></details>
     <details><summary>Можно ли купить, если я недавно в США?</summary><p>Часто можно, но условия зависят от вашей ситуации. На консультации разберём, что реально в вашем случае.</p></details>
     <details><summary>Сколько времени занимает покупка?</summary><p>Обычно 30–45 дней с момента, когда ваше предложение приняли, до получения ключей.</p></details>
     <details><summary>Первая консультация правда бесплатная?</summary><p>Да. Первый разговор бесплатный и ни к чему не обязывает.</p></details>
@@ -803,11 +804,11 @@ function render(focus){
       + '<label class="field"><span>Email (по желанию)</span><input name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@gmail.com" aria-describedby="e-email"><em class="msg" id="e-email">Проверьте email</em></label>'
       + '<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">'
       + '<label class="consent"><input type="checkbox" name="consent"><span>Разрешаю Your House Realty звонить и писать мне SMS на этот номер, в том числе автоматически. Это не условие покупки. Возможна плата оператора, отписка: STOP. <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>'
-      + '<p class="next">'+(sell() ? 'София свяжется с вами и назовёт примерную цену дома.' : 'София свяжется с вами и пришлёт подборку домов.')+' Обычно в течение дня.</p>'
+      + '<p class="next">'+(sell() ? 'София свяжется с вами и назовёт примерную цену дома.' : 'София свяжется с вами и пришлёт подборку домов.')+'</p>'
       + '<button class="btn" type="submit">'+(sell() ? 'Узнать цену дома' : 'Получить подборку')+'</button><p class="fine">Консультация бесплатная, ни к чему не обязывает.</p></form><button class="back" data-back>Назад</button>';
     LIVE.textContent = "Последний шаг: контакты";
   } else {
-    Q.innerHTML = prog(N()+1) + '<div class="done"><svg class="tick" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" fill="none" stroke="currentColor" stroke-width="1"/><path d="M16 28l8 8 14-16" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><h3 tabindex="-1">Спасибо, '+esc(ans.name||"")+'!</h3><p>Свяжусь с вами в течение дня.</p><p>Если срочно, позвоните: <a href="tel:+16305937949"><b>(630) 593-7949</b></a></p></div>';
+    Q.innerHTML = prog(N()+1) + '<div class="done"><svg class="tick" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" fill="none" stroke="currentColor" stroke-width="1"/><path d="M16 28l8 8 14-16" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><h3 tabindex="-1">Спасибо, '+esc(ans.name||"")+'!</h3><p>Свяжусь с вами в ближайшее время.</p><p>Если срочно, позвоните: <a href="tel:+16305937949"><b>(630) 593-7949</b></a></p></div>';
     LIVE.textContent = "Заявка отправлена";
   }
   if(focus){ var h = Q.querySelector("h3"); if(h) h.focus({preventScroll:true}); }
