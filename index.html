@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="Подберу дом в Чикаго и пригородах под ваш бюджет — София Ильчук">
-<meta property="og:description" content="Два вопроса, и я пришлю подходящие дома. Первая консультация бесплатная.">
+<meta property="og:description" content="Три коротких вопроса, и я пришлю подходящие дома. Первая консультация бесплатная.">
 <!-- ponytail: og:image must be an absolute URL once the domain is known, e.g. https://DOMAIN/img/og.jpg -->
 <meta property="og:image" content="img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -568,6 +568,36 @@ header{background:rgba(24,25,28,.97)}
 .houses{grid-template-columns:repeat(4,1fr)}
 @media(min-width:561px) and (max-width:959px){.houses{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.houses{grid-template-columns:1fr 1fr}.houses .house:nth-child(3){grid-column:auto}}
+
+/* ===== v22: video chip, dialog, next-step line ===== */
+.who{background:none;border:0;padding:0;font:inherit;color:inherit;text-align:left;cursor:pointer;display:flex;align-items:center;gap:14px}
+.who .av{position:relative;flex:none}
+.who .av img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 14%;box-shadow:0 0 0 2px var(--gold)}
+.who .pl{position:absolute;right:-4px;bottom:-4px;width:24px;height:24px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 2px #18191C}
+.who .pl:after{content:"";position:absolute;left:9px;top:6px;border:6px solid transparent;border-left:9px solid #1A1306;border-right:0}
+.who .wt{display:block}
+.who .wt b{display:block;font:500 15px var(--f-body)}
+.who .wt em{display:block;font:400 13.5px var(--f-body);font-style:normal;color:var(--gold-h);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(242,203,108,.45)}
+.who:hover .wt em{text-decoration-color:var(--gold-h)}
+dialog#vd{border:0;padding:0;background:#000;max-width:min(92vw,420px);width:100%;max-height:92vh;overflow:hidden}
+dialog#vd::backdrop{background:rgba(8,9,10,.82)}
+dialog#vd video{display:block;width:100%;max-height:88vh;aspect-ratio:9/16;object-fit:contain;background:#000}
+.vx{position:absolute;top:8px;right:8px;z-index:2;width:44px;height:44px;border:0;background:rgba(14,15,16,.7);color:#fff;font:300 28px/1 var(--f-body);cursor:pointer}
+.next{margin:4px 0 14px;font-size:14px;color:var(--ink2);line-height:1.45}
+
+/* ===== v23: fears on paper (reordered) ===== */
+.paper .rowx{border-bottom:1px solid var(--s-line)}
+.paper .rowx h3{color:var(--paper-ink)}
+.paper .rowx p{color:var(--paper-ink2)}
+.paper .head{border-color:var(--s-line)}
+.paper .cta-row small{color:var(--paper-ink2)}
+.dark2 .about .btn.line{color:var(--ink);box-shadow:inset 0 0 0 1px rgba(245,239,231,.4)}
+.dark2 .about .btn.line:hover{background:var(--gold);color:#1A1306}
+.dark2 .social a{border-color:rgba(245,239,231,.28);color:var(--ink)}
+
+dialog#vd{padding-top:48px}
+.vx{top:2px;right:2px}
+dialog#vd video{max-height:calc(92vh - 48px)}
 </style>
 </head>
 <body>
@@ -590,19 +620,18 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="bg"><img src="img/home-dusk.jpg" srcset="img/home-dusk.jpg 1400w, img/home-dusk-2400.jpg 2400w" sizes="100vw" alt="" fetchpriority="high" decoding="async"></div>
   <div class="wrap grid">
     <div class="hl">
-      <div class="who o1"><img src="img/avatar.jpg" alt="София Ильчук" width="64" height="64"><div><b>София Ильчук</b><span>Брокер</span></div></div>
+      <button type="button" class="who o1" id="vbtn" aria-haspopup="dialog"><span class="av"><img src="img/avatar.jpg" alt="" width="64" height="64"><i class="pl" aria-hidden="true"></i></span><span class="wt"><b>София Ильчук</b><em>Видео от Софии, 54 сек</em></span></button>
       <h1 class="o2">Подберу дом в&nbsp;Чикаго и&nbsp;пригородах <i>под&nbsp;ваш&nbsp;бюджет</i></h1>
-      <p class="lead o3">Два вопроса, и&nbsp;я&nbsp;пришлю подходящие дома. Консультация бесплатная.</p>
+      <p class="lead o3">Три коротких вопроса, и&nbsp;я&nbsp;пришлю подходящие дома. Консультация бесплатная.</p>
     </div>
     <div class="quiz o4" id="quiz"><noscript><p>Для подбора включите JavaScript или позвоните: <a href="tel:+16305937949">(630) 593-7949</a></p></noscript></div>
     <div class="sr" id="live" aria-live="polite"></div>
   </div>
 </section>
-
 <!-- 2. ЧТО ИЩЕТЕ -->
 <section class="paper">
   <div class="wrap">
-    <div class="head nohr rv"><h2>Что мы <i>подбираем</i></h2><p class="lead">Выберите вариант, и останется один вопрос.</p></div>
+    <div class="head nohr rv"><h2>Что мы <i>подбираем</i></h2><p class="lead">Выберите вариант, и мы продолжим с бюджета.</p></div>
     <div class="houses">
       <button class="house rv" data-pick="Дом"><img src="img/home-family.jpg" alt="Кирпичный дом" loading="lazy"><div><h3>Дом</h3><p>Отдельный дом с участком и гаражом.</p></div></button>
       <button class="house rv" data-pick="Таунхаус"><img src="img/home-new.jpg" alt="Таунхаусы в пригороде" loading="lazy"><div><h3>Таунхаус</h3><p>Меньше ухода, часто дешевле дома.</p></div></button>
@@ -612,51 +641,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <p class="note">Фото для примера. Реальные дома пришлю после ответов.</p>
   </div>
 </section>
-
-<!-- 3. СТРАХИ (paper) -->
-<section class="dark2">
-  <div class="wrap">
-    <div class="head rv"><h2>Что вас <i>останавливает</i>?</h2></div>
-    <div class="rows">
-      <div class="rowx rv"><h3>Не хватит денег на первый взнос</h3><p>Есть программы с первым взносом от&nbsp;3%. Подскажу, какие стоит обсудить с&nbsp;кредитором.</p></div>
-      <div class="rowx rv"><h3>Страшно брать ипотеку</h3><p>Объясню, как она работает, и подскажу, к кому идти за предварительным одобрением.</p></div>
-      <div class="rowx rv"><h3>Сложно с языком и документами</h3><p>Объясню каждую бумагу простыми словами, до&nbsp;подписи.</p></div>
-      <div class="rowx rv"><h3>Боюсь ошибиться с выбором</h3><p>Покажу плюсы и минусы каждого дома и помогу договориться о&nbsp;цене.</p></div>
-    </div>
-    <div class="cta-row rv"><a class="btn" href="#quiz" data-open>Подобрать дом</a><small>Минута на вопросы, без обязательств.</small></div>
-  </div>
-</section>
-
-<!-- 4. ПРОЦЕСС -->
-<section class="paper">
-  <div class="wrap">
-    <div class="head nohr rv"><h2>Как проходит <i>покупка</i></h2></div>
-    <div class="steps">
-      <div class="step rv"><b>01</b><h3>Разговор</h3><p>15 минут: бюджет, сроки, пожелания. Бесплатно.</p></div>
-      <div class="step rv"><b>02</b><h3>Подбор</h3><p>Нахожу подходящие дома в MLS и отсеиваю лишнее.</p></div>
-      <div class="step rv"><b>03</b><h3>Просмотры и торг</h3><p>Еду с вами на просмотры и договариваюсь о цене.</p></div>
-      <div class="step rv"><b>04</b><h3>Сделка</h3><p>Организую инспекцию и&nbsp;слежу за документами до&nbsp;закрытия. Вы получаете ключи.</p></div>
-    </div>
-    <div class="cta-row rv"><a class="btn" href="#quiz" data-open>Подобрать дом</a><small>Свяжусь с вами в течение дня</small></div>
-  </div>
-</section>
-
-<!-- 5. КОМАНДА (dark) -->
-<section class="dark2">
-  <div class="wrap">
-    <div class="head nohr rv"><h2>С вами работает <i>команда</i></h2><p class="lead">Каждый этап сделки ведёт свой специалист.</p></div>
-    <div class="team">
-      <div class="rv"><h3>Лицензированные брокеры</h3><p>Подбирают дома, ездят на показы, ведут переговоры.</p></div>
-      <div class="rv"><h3>Адвокаты по недвижимости</h3><p>Проверяют договор и документы сделки.</p></div>
-      <div class="rv"><h3>Инспекторы</h3><p>Осматривают дом до покупки.</p></div>
-      <div class="rv"><h3>Ипотечные брокеры</h3><p>Помогают подобрать кредитную программу.</p></div>
-      <div class="rv"><h3>Страховые специалисты</h3><p>Оформляют страхование дома.</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- 6. О СОФИИ + ВИДЕО (paper) -->
-<section class="paper">
+<section class="dark2">
   <div class="wrap about">
     <figure class="vid rv">
       <video controls playsinline preload="none" poster="img/video-poster.jpg" aria-label="Видеообращение Софии Ильчук">
@@ -679,7 +665,45 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     </div>
   </div>
 </section>
-
+<!-- 3. СТРАХИ (paper) -->
+<section class="paper">
+  <div class="wrap">
+    <div class="head rv"><h2>Что вас <i>останавливает</i>?</h2></div>
+    <div class="rows">
+      <div class="rowx rv"><h3>Не хватит денег на первый взнос</h3><p>Бывают программы с&nbsp;первым взносом от&nbsp;3–3,5% и&nbsp;помощь с&nbsp;взносом в&nbsp;Иллинойсе. Подскажу, какие подходят вам.</p></div>
+      <div class="rowx rv"><h3>Страшно брать ипотеку</h3><p>Идеальная кредитная история не обязательна. Есть программы и для тех, кто недавно в США, в том числе без SSN. Подскажу, к кому идти за одобрением.</p></div>
+      <div class="rowx rv"><h3>Сложно с языком и документами</h3><p>Объясню каждую бумагу простыми словами, до&nbsp;подписи.</p></div>
+      <div class="rowx rv"><h3>Боюсь ошибиться с выбором</h3><p>Покажу плюсы и минусы каждого дома и помогу договориться о&nbsp;цене.</p></div>
+    </div>
+    <div class="cta-row rv"><a class="btn" href="#quiz" data-open>Подобрать дом</a><small>Минута на вопросы, без обязательств.</small></div>
+  </div>
+</section>
+<!-- 5. КОМАНДА (dark) -->
+<section class="dark2">
+  <div class="wrap">
+    <div class="head nohr rv"><h2>С вами работает <i>команда</i></h2><p class="lead">Каждый этап сделки ведёт свой специалист.</p></div>
+    <div class="team">
+      <div class="rv"><h3>Лицензированные брокеры</h3><p>Подбирают дома, ездят на показы, ведут переговоры.</p></div>
+      <div class="rv"><h3>Адвокаты по недвижимости</h3><p>Проверяют договор и документы сделки.</p></div>
+      <div class="rv"><h3>Инспекторы</h3><p>Осматривают дом до покупки.</p></div>
+      <div class="rv"><h3>Ипотечные брокеры</h3><p>Помогают подобрать кредитную программу.</p></div>
+      <div class="rv"><h3>Страховые специалисты</h3><p>Оформляют страхование дома.</p></div>
+    </div>
+  </div>
+</section>
+<!-- 4. ПРОЦЕСС -->
+<section class="paper">
+  <div class="wrap">
+    <div class="head nohr rv"><h2>Как проходит <i>покупка</i></h2></div>
+    <div class="steps">
+      <div class="step rv"><b>01</b><h3>Разговор</h3><p>15 минут: бюджет, сроки, пожелания. Бесплатно.</p></div>
+      <div class="step rv"><b>02</b><h3>Подбор</h3><p>Нахожу подходящие дома в MLS и отсеиваю лишнее.</p></div>
+      <div class="step rv"><b>03</b><h3>Просмотры и торг</h3><p>Еду с вами на просмотры и договариваюсь о цене.</p></div>
+      <div class="step rv"><b>04</b><h3>Сделка</h3><p>Организую инспекцию и&nbsp;слежу за документами до&nbsp;закрытия. Вы получаете ключи.</p></div>
+    </div>
+    <div class="cta-row rv"><a class="btn" href="#quiz" data-open>Подобрать дом</a><small>Свяжусь с вами в течение дня</small></div>
+  </div>
+</section>
 <!-- 7. ПРОДАЖА (dark band) -->
 <section class="dark2 sellband">
   <div class="wrap sell-row">
@@ -687,7 +711,6 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <a class="btn rv" href="#quiz" data-pick="Хочу продать">Узнать цену дома</a>
   </div>
 </section>
-
 <!-- 6. FAQ -->
 <section class="paper">
   <div class="wrap faq">
@@ -701,13 +724,12 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     </div>
   </div>
 </section>
-
 <!-- 7. ФИНАЛ -->
 <section class="close">
   <div class="cbg"><img src="img/home-dusk.jpg" srcset="img/home-dusk.jpg 1400w, img/home-dusk-2400.jpg 2400w" sizes="100vw" alt="" loading="lazy"></div>
   <div class="wrap">
     <h2 class="rv">Расскажите, <i>какой дом</i> ищете</h2>
-    <p class="rv">Два вопроса, и я пришлю подборку домов под&nbsp;ваш бюджет.</p>
+    <p class="rv">Три коротких вопроса, и я пришлю подборку домов под&nbsp;ваш бюджет.</p>
     <a class="btn rv" href="#quiz" data-open>Подобрать дом</a>
     <p class="sell rv">Хотите продать дом? <a href="#quiz" data-pick="Хочу продать">Узнать, сколько он стоит</a></p>
   </div>
@@ -729,6 +751,11 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   </div>
 </div></footer>
 
+<dialog id="vd" aria-label="Видео от Софии Ильчук">
+  <button type="button" class="vx" id="vclose" aria-label="Закрыть">×</button>
+  <video id="vv" playsinline controls preload="none" poster="img/video-poster.jpg"><source src="video/sofiia-intro.mp4" type="video/mp4"></video>
+</dialog>
+
 <div class="bar-m" id="barm"><a class="btn line call" href="tel:+16305937949" aria-label="Позвонить">Позвонить</a><a class="btn" href="#quiz" data-open>Подобрать дом</a></div>
 
 <script>
@@ -738,7 +765,8 @@ document.documentElement.classList.add("js");
 var ENDPOINT = "";
 var BUY = [
   {k:"goal", t:"Что вы ищете?", o:["Дом","Таунхаус","Квартира","Хочу продать"]},
-  {k:"budget", t:"Какой бюджет?", o:["До $300 тыс.","$300–400 тыс.","$400–550 тыс.","$550–750 тыс.","Больше $750 тыс.","Пока не знаю"]}
+  {k:"budget", t:"Какой бюджет?", o:["До $300 тыс.","$300–400 тыс.","$400–550 тыс.","$550–750 тыс.","Больше $750 тыс.","Пока не знаю"]},
+  {k:"mortgage", t:"Что с ипотекой?", o:["Уже одобрена","Ещё не оформлял(а)","Куплю без ипотеки"]}
 ];
 var SELL = [
   BUY[0],
@@ -754,30 +782,32 @@ try { sessionStorage.setItem("utm", JSON.stringify(utm)); } catch(e){}
 function cookie(n){ var m = document.cookie.match(new RegExp("(?:^|; )"+n+"=([^;]*)")); return m ? m[1] : ""; }
 function steps(){ return ans.goal === "Хочу продать" ? SELL : BUY; }
 function sell(){ return ans.goal === "Хочу продать"; }
-function prog(n){ var h='<div class="prog" role="img" aria-label="Шаг '+Math.min(n+1,3)+' из 3">'; for(var i=0;i<3;i++) h+='<i class="'+(i<=n?'lit':'')+'"></i>'; return h+'</div>'; }
+function N(){ return steps().length; }
+function prog(n){ var t=N()+1, h='<div class="prog" role="img" aria-label="Шаг '+Math.min(n+1,t)+' из '+t+'">'; for(var i=0;i<t;i++) h+='<i class="'+(i<=n?'lit':'')+'"></i>'; return h+'</div>'; }
 function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]}); }
 function render(focus){
-  Q.classList.toggle("lit", step === 3);
+  Q.classList.toggle("lit", step === N()+1);
   Q.classList.remove("swap"); void Q.offsetWidth; Q.classList.add("swap");
-  if(step < 2){
+  if(step < N()){
     var s = steps()[step];
     var two = (step === 0 || s.k === "budget") ? " two" : "";
-    Q.innerHTML = prog(step) + '<div class="q-meta"><span>Вопрос '+(step+1)+' из 2</span><span>~30 секунд</span></div>'
+    Q.innerHTML = prog(step) + '<div class="q-meta"><span>Вопрос '+(step+1)+' из '+N()+'</span><span>~1 минута</span></div>'
       + '<h3 tabindex="-1">'+s.t+'</h3><div class="opts'+two+'">'+s.o.map(function(o){return '<button class="opt'+(ans[s.k]===o?' on':'')+'" aria-pressed="'+(ans[s.k]===o)+'" data-v="'+o+'">'+o+'</button>'}).join("")+'</div>'
       + (step ? '<button class="back" data-back>Назад</button>' : '');
-    LIVE.textContent = "Вопрос "+(step+1)+" из 2: "+s.t;
-  } else if(step === 2){
-    Q.innerHTML = prog(2) + '<div class="q-meta"><span>Последний шаг</span><span>контакты</span></div>'
+    LIVE.textContent = "Вопрос "+(step+1)+" из "+N()+": "+s.t;
+  } else if(step === N()){
+    Q.innerHTML = prog(N()) + '<div class="q-meta"><span>Последний шаг</span><span>контакты</span></div>'
       + '<h3 tabindex="-1">'+(sell() ? 'Куда отправить оценку?' : 'Куда прислать подборку?')+'</h3><form novalidate>'
       + '<label class="field"><span>Имя</span><input name="name" autocomplete="given-name" placeholder="Как к вам обращаться" aria-describedby="e-name"><em class="msg" id="e-name">Введите имя</em></label>'
       + '<label class="field"><span>Телефон</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(312) 555-0199" aria-describedby="e-phone"><em class="msg" id="e-phone">Нужно 10 цифр, например (312) 555-0199</em></label>'
       + '<label class="field"><span>Email (по желанию)</span><input name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@gmail.com" aria-describedby="e-email"><em class="msg" id="e-email">Проверьте email</em></label>'
       + '<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">'
       + '<label class="consent"><input type="checkbox" name="consent"><span>Разрешаю Your House Realty звонить и писать мне SMS на этот номер, в том числе автоматически. Это не условие покупки. Возможна плата оператора, отписка: STOP. <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>'
+      + '<p class="next">'+(sell() ? 'София свяжется с вами и назовёт примерную цену дома.' : 'София свяжется с вами и пришлёт подборку домов.')+' Обычно в течение дня.</p>'
       + '<button class="btn" type="submit">'+(sell() ? 'Узнать цену дома' : 'Получить подборку')+'</button><p class="fine">Консультация бесплатная, ни к чему не обязывает.</p></form><button class="back" data-back>Назад</button>';
     LIVE.textContent = "Последний шаг: контакты";
   } else {
-    Q.innerHTML = prog(3) + '<div class="done"><svg class="tick" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" fill="none" stroke="currentColor" stroke-width="1"/><path d="M16 28l8 8 14-16" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><h3 tabindex="-1">Спасибо, '+esc(ans.name||"")+'!</h3><p>Свяжусь с вами в течение дня.</p><p>Если срочно, позвоните: <a href="tel:+16305937949"><b>(630) 593-7949</b></a></p></div>';
+    Q.innerHTML = prog(N()+1) + '<div class="done"><svg class="tick" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" fill="none" stroke="currentColor" stroke-width="1"/><path d="M16 28l8 8 14-16" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><h3 tabindex="-1">Спасибо, '+esc(ans.name||"")+'!</h3><p>Свяжусь с вами в течение дня.</p><p>Если срочно, позвоните: <a href="tel:+16305937949"><b>(630) 593-7949</b></a></p></div>';
     LIVE.textContent = "Заявка отправлена";
   }
   if(focus){ var h = Q.querySelector("h3"); if(h) h.focus({preventScroll:true}); }
@@ -797,7 +827,7 @@ function submit(f){
   ans.name = name; ans.phone = f.phone.value.trim(); ans.sms_consent = f.consent.checked; if(email) ans.email = email;
   var eventId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now());
   var payload = Object.assign({}, ans, utm, {event_id:eventId, fbp:cookie("_fbp"), fbc:cookie("_fbc"), page:location.href, ts:new Date().toISOString()});
-  function ok(){ if(window.fbq) fbq("track","Lead",{},{eventID:eventId}); step = 3; render(true); }
+  function ok(){ if(window.fbq) fbq("track","Lead",{},{eventID:eventId}); step = N()+1; render(true); }
   var btn = f.querySelector(".btn"), label = btn.textContent;
   if(!ENDPOINT){ console.log("LEAD", payload); ok(); return; }
   busy = true; btn.disabled = true; btn.textContent = "Отправляем…";
@@ -826,6 +856,24 @@ document.addEventListener("click", function(e){
   else if(a){ e.preventDefault(); goQuiz(); }
 });
 render(false);
+
+// video dialog in the first screen
+var vd=document.getElementById("vd"),vv=document.getElementById("vv");
+document.getElementById("vbtn").addEventListener("click",function(){ if(vd.showModal){ vd.showModal(); } else { vd.setAttribute("open",""); } vv.play().catch(function(){}); });
+function closeV(){ vv.pause(); if(vd.close) vd.close(); else vd.removeAttribute("open"); }
+document.getElementById("vclose").addEventListener("click",closeV);
+vd.addEventListener("click",function(e){ if(e.target===vd) closeV(); });
+vd.addEventListener("close",function(){ vv.pause(); });
+
+// ad-specific headline: ?for=house|town|condo|sell (message match with the ad)
+var VAR={
+  house:{h:'Подберу дом в&nbsp;пригородах Чикаго <i>под&nbsp;ваш&nbsp;бюджет</i>',goal:'Дом'},
+  town:{h:'Подберу таунхаус в&nbsp;Чикаго и&nbsp;пригородах <i>под&nbsp;ваш&nbsp;бюджет</i>',goal:'Таунхаус'},
+  condo:{h:'Подберу квартиру в&nbsp;Чикаго <i>под&nbsp;ваш&nbsp;бюджет</i>',goal:'Квартира'},
+  sell:{h:'Узнайте, за&nbsp;сколько можно продать <i>ваш&nbsp;дом</i>',goal:'Хочу продать',lead:'Расскажите об&nbsp;объекте, и&nbsp;я&nbsp;назову примерную цену. Консультация бесплатная.'}
+};
+var vr=VAR[params.get("for")];
+if(vr){ document.querySelector(".hero h1").innerHTML=vr.h; if(vr.lead) document.querySelector(".hero .lead").innerHTML=vr.lead; ans.goal=vr.goal; step=1; render(false); }
 
 // reveal on scroll (content stays visible if IntersectionObserver is missing)
 var rv = document.querySelectorAll(".rv");
