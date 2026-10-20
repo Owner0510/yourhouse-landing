@@ -761,7 +761,7 @@ function render(focus){
   Q.classList.remove("swap"); void Q.offsetWidth; Q.classList.add("swap");
   if(step < 2){
     var s = steps()[step];
-    var two = step === 0 ? " two" : "";
+    var two = (step === 0 || s.k === "budget") ? " two" : "";
     Q.innerHTML = prog(step) + '<div class="q-meta"><span>Вопрос '+(step+1)+' из 2</span><span>~30 секунд</span></div>'
       + '<h3 tabindex="-1">'+s.t+'</h3><div class="opts'+two+'">'+s.o.map(function(o){return '<button class="opt'+(ans[s.k]===o?' on':'')+'" aria-pressed="'+(ans[s.k]===o)+'" data-v="'+o+'">'+o+'</button>'}).join("")+'</div>'
       + (step ? '<button class="back" data-back>Назад</button>' : '');
