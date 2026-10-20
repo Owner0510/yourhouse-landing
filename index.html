@@ -557,6 +557,12 @@ header{background:rgba(24,25,28,.97)}
 @media(min-width:561px) and (max-width:959px){.houses{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.houses{grid-template-columns:1fr 1fr}.houses .house:nth-child(3){grid-column:auto}}
 .opts.two .opt:last-child:nth-child(odd){grid-column:1/-1}
+
+/* ===== v20: three property types ===== */
+.houses{grid-template-columns:repeat(3,1fr)}
+@media(min-width:561px) and (max-width:959px){.houses{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.houses{grid-template-columns:1fr 1fr}.houses .house:nth-child(3){grid-column:1/-1}}
+.opts.two .opt:last-child:nth-child(odd){grid-column:auto}
 </style>
 </head>
 <body>
@@ -596,7 +602,6 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <button class="house rv" data-pick="Дом"><img src="img/home-family.jpg" alt="Кирпичный дом" loading="lazy"><div><h3>Дом</h3><p>Отдельный дом с участком и гаражом.</p></div></button>
       <button class="house rv" data-pick="Таунхаус"><img src="img/home-new.jpg" alt="Таунхаусы в пригороде" loading="lazy"><div><h3>Таунхаус</h3><p>Меньше ухода, часто дешевле дома.</p></div></button>
       <button class="house rv" data-pick="Квартира / кондо"><img src="img/home-condo.jpg" alt="Жилая башня с балконами в Чикаго" loading="lazy"><div><h3>Квартира / кондо</h3><p>В Чикаго или рядом с центром.</p></div></button>
-      <button class="house rv" data-pick="Новостройка"><img src="img/home-first.jpg" alt="Новый дом с лужайкой" loading="lazy"><div><h3>Новостройка</h3><p>Новый дом от застройщика.</p></div></button>
     </div>
     <p class="note">Фото для примера. Реальные дома пришлю после ответов.</p>
   </div>
@@ -726,7 +731,7 @@ document.documentElement.classList.add("js");
 // With an endpoint set, the success screen shows only after a 2xx response.
 var ENDPOINT = "";
 var BUY = [
-  {k:"goal", t:"Что вы ищете?", o:["Дом","Таунхаус","Квартира / кондо","Новостройка","Хочу продать"]},
+  {k:"goal", t:"Что вы ищете?", o:["Дом","Таунхаус","Квартира / кондо","Хочу продать"]},
   {k:"budget", t:"Какой бюджет?", o:["До $300 тыс.","$300–400 тыс.","$400–550 тыс.","$550–750 тыс.","Больше $750 тыс.","Пока не знаю"]}
 ];
 var SELL = [
